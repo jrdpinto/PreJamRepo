@@ -15,6 +15,7 @@ public class ShootingActor : MonoBehaviour {
     virtual protected void Start()
     {
         m_bullet = GameObject.Instantiate(m_bullet);
+        m_bullet.transform.parent = transform;
         m_rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -23,7 +24,7 @@ public class ShootingActor : MonoBehaviour {
         if (m_bullet.activeSelf)
             return;
 
-        m_bullet.transform.position = transform.position;
+        m_bullet.transform.localPosition = Vector2.zero;
         m_bullet.transform.rotation = Quaternion.Euler(0, 0, eularAngle);
         m_bullet.SetActive(true);
     }

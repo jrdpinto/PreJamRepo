@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : MonoBehaviour {
     [SerializeField]
-    float m_speed;
+    float m_speed = 10;
     Rigidbody2D m_rigidbody;
 
 	// Use this for initialization
@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour {
         m_rigidbody.velocity = velocity; 
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         gameObject.SetActive(false);
     }
